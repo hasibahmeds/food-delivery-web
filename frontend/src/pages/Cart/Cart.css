@@ -180,7 +180,8 @@
 
   padding: 20px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.05);
+  /* background: rgba(255, 255, 255, 0.05); */
+  background: rgba(255, 255, 255, 0.065);
   border: 1px solid #464545;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
