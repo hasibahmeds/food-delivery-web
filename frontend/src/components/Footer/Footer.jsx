@@ -121,7 +121,7 @@ const Footer = () => {
       <hr />
 
       <p className="footer-copyright">
-        Copyright © 2025 <strong>Heat & Treat</strong> - All Rights Reserved |
+        Copyright © 2026 <strong>Heat & Treat</strong> - All Rights Reserved |
         <span className="made-with">
           {" "}
           <strong>Made With Fire & Coffee</strong>
