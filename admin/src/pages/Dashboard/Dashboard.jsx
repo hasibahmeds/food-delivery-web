@@ -92,7 +92,8 @@ const Dashboard = () => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" angle={-35} textAnchor="end" height={60} />
+              {/* <XAxis dataKey="date" angle={-35} textAnchor="end" height={60} /> */}
+              <XAxis dataKey="date" angle={0} textAnchor="end" height={60} />
               <YAxis />
               <Tooltip
                 formatter={(value) => [`${value.toLocaleString()} TK`, "Revenue"]}
@@ -120,7 +121,8 @@ const Dashboard = () => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" angle={-35} textAnchor="end" height={60} />
+              {/* <XAxis dataKey="date" angle={-35} textAnchor="end" height={60} /> */}
+              <XAxis dataKey="date" angle={0} textAnchor="end" height={60} />
               <YAxis allowDecimals={false} />
               <Tooltip
                 formatter={(value) => [`${value} orders`, "Count"]}
