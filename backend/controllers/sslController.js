@@ -70,7 +70,7 @@ export const sslInit = async (req, res) => {
     // Backend URL - Use local server for development callbacks
     // For Local Server: http://localhost:4000
     // For Live URL: https://your-live-backend-url.com
-    const backend_url = process.env.BACKEND_URL || "http://localhost:4000";
+    const backend_url = process.env.BACKEND_URL || "https://food-delivery-backend-rqjq.onrender.com";
 
     const sslData = {
       total_amount: expectedTotal,
@@ -106,7 +106,7 @@ export const sslInit = async (req, res) => {
 export const sslSuccess = async (req, res) => {
   try {
     const { tran_id } = req.body || req.query;
-    const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+    const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com";
 
     if (!tran_id) {
        console.error("SSL Success: No transaction ID found");
@@ -126,17 +126,17 @@ export const sslSuccess = async (req, res) => {
     res.redirect(`${frontend_url}/myorders`);
   } catch (error) {
     console.error("SSL Success error:", error);
-    const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+    const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com";
     res.redirect(`${frontend_url}/myorders`);
   }
 };
 
 export const sslFail = async (req, res) => {
-  const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+  const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com";
   res.redirect(`${frontend_url}/order`);
 };
 
 export const sslCancel = async (req, res) => {
-  const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+  const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com";
   res.redirect(`${frontend_url}/order`);
 };
