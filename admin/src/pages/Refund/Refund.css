@@ -132,27 +132,28 @@
 
 .refund-status {
   margin-top: 12px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
+  margin-left: 3px;
   font-weight: 500;
-  padding: 6px 12px;
+  /* padding: 6px 12px; */
   border-radius: 4px;
   display: inline-block;
   
 }
 
 .refund-status.approved {
-  background: #1e3a2e;
+  /* background: #1e3a2e; */
   color: #4caf50;
 }
 
 .refund-status.rejected {
-  background: #3a1e1e;
+  /* background: #3a1e1e; */
   color: #f44336;
 }
 
 
 .refund-status.pending {
-  background: #ecaf0752;
+  /* background: #ecaf0752; */
   color: #e6ab0a;
 }
 
