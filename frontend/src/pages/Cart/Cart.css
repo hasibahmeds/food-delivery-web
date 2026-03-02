@@ -110,7 +110,8 @@
   text-align: center;
   font-weight: 600;
   color: #fff;
-  background: #333;
+  /* background: #333; */
+   background: #363636;
   padding: 6px 10px;
   border-radius: 20px;
   font-size: 14px;
