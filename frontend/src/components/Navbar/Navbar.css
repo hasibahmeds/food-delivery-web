@@ -251,13 +251,13 @@
   /* max-width: 1440px;  */
   max-width: 100%; 
   margin: 0 auto;                 /* center it */
-  padding: 16px 10%;               /* symmetric padding – scales nicely */
+  padding: 16px 10%;               
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  /* background-color: #0c0a09;      */
-  /* border-bottom: 2px solid rgba(255, 255, 255, 0.116); */
+  /* background-color: #0c0a09; */
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.19);  */
   /* box-shadow: 0 2px 10px rgba(255, 255, 255, 0.103); */
 }
 
@@ -498,7 +498,7 @@
   text-decoration: none;
   /* padding: 14px 0; */
   padding-top: 15px;
-  border-top: 1px solid #666565;
+  /* border-top: 1px solid #666565; */
   display: flex;
   align-items: center;
   gap: 12px;
@@ -574,8 +574,8 @@
   font-size: 16px;
   padding: 10px 0;
   text-align: center;
-  border-top: 1px solid #666565;
-  border-bottom: 1px solid #666565;
+  /* border-top: 1px solid #666565;
+  border-bottom: 1px solid #666565; */
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -642,8 +642,8 @@
   font-size: 16px;
   padding: 10px 0;
   text-align: center;
-  border-top: 1px solid #666565;
-  border-bottom: 1px solid #666565;
+  /* border-top: 1px solid #666565;
+  border-bottom: 1px solid #666565; */
   background: rgba(255, 255, 255, 0.05);
 }
 
