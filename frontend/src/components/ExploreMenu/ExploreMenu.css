@@ -15,8 +15,7 @@
 .explore-menu-text{
     max-width: auto;
     /* columns: #808080; */
-    /* color: #9e9c9c; */
-    color: #b9b7b7;
+    color: #b8b4b4;
     text-align: justify;
 
 }
@@ -49,7 +48,7 @@
 .explore-menu-list-item p{
     margin-top: 10px;
     /* color: #9c9a9a; */
-        color: #b3b1b1;
+    color: #b8b4b4;
     font-size: max(1.4vw,16px);
     cursor: pointer;
     white-space: nowrap;
