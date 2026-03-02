@@ -111,7 +111,7 @@
   font-weight: 600;
   color: #fff;
   /* background: #333; */
-   background: #363636;
+  background: #ff2600;
   padding: 6px 10px;
   border-radius: 20px;
   font-size: 14px;
@@ -121,7 +121,8 @@
 
 
 .item-quantity span:hover {
-  color: #ff2600;
+  /* color: #ff2600; */
+  color: #ffffffc0;
 }
 
 .item-total {
