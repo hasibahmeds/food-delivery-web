@@ -28,7 +28,8 @@
 .footer-content-left p {
   font-size: 15px;
   line-height: 1.7;
-  color: #b8b4b4;
+  /* color: #b8b4b4; */
+  color: #cecece;
   max-width: 380px;
   margin-bottom: 22px;
 }
@@ -130,13 +131,15 @@
 }
 
 .footer-content-right li a {
-  color: #b8b4b4;
+  /* color: #b8b4b4; */
+  color: #cecece;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer-content-center li a {
-  color: #b8b4b4;
+  /* color: #b8b4b4; */
+    color: #cecece;
 }
 
 .footer-content-right li a:hover {
