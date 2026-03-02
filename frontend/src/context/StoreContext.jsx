@@ -110,7 +110,7 @@ const StoreContextProvider = (props) => {
   // Backend URL - Use local server for development
   // For Local Server: http://localhost:4000
   // For Live URL: https://your-live-backend-url.com
-  const url = "http://localhost:4000";
+  const url = "https://food-delivery-backend-rqjq.onrender.com";
 
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
