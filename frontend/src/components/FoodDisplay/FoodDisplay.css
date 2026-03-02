@@ -1,9 +1,10 @@
 .food-display{
     width: 80%;
     margin: 0px auto 0 auto;
+    padding-top: 64px;
 }
 .food-display h2{
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 400;
     color: #ff2600;
 }
