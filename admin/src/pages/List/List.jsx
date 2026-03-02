@@ -303,7 +303,7 @@ import { requestWithFallback } from '../../assets/api';
 
 // For Local Server: http://localhost:4000
 // For Live URL: https://your-live-backend-url.com
-const List = ({ url = 'http://localhost:4000' }) => {
+const List = ({ url = 'https://food-delivery-backend-rqjq.onrender.com' }) => {
 // const List = ({ url = 'https://your-live-backend-url.com' }) => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
