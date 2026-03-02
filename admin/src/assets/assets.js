@@ -24,7 +24,7 @@ export const assets = {
 // ────────────────────────────────────────────────
 // For Local Server: http://localhost:4000
 // For Live URL: https://your-live-backend-url.com
-export const url = 'http://localhost:4000';
+export const url = 'https://food-delivery-backend-rqjq.onrender.com';
 
 // Optional: only if you really want fallback logic
 export const fallbackUrl = null; // or remove this export completely
