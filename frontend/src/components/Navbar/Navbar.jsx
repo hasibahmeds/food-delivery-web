@@ -163,7 +163,7 @@ const Navbar = ({ setShowLogin }) => {
         ) : (
           <>
             <div className="mobile-menu-email">
-              Logged in as <strong>{userEmail}</strong>
+              <strong>{userEmail}</strong>
             </div>
             <Link 
               to="/myorders" 
