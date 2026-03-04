@@ -107,6 +107,11 @@ const Navbar = ({ setShowLogin }) => {
                 <p className="profile-email">{userEmail}</p>
               </li>
               <hr />
+              <li onClick={() => { navigate('/profile'); closeMobileMenu(); }}>
+                <CgProfile className="shopp" />
+                <p>Profile</p>
+              </li>
+              <hr />
               <li onClick={() => { navigate('/myorders'); closeMobileMenu(); }}>
                 <BsBagCheck className="shopp" />
                 <p>Orders</p>
@@ -165,6 +170,13 @@ const Navbar = ({ setShowLogin }) => {
             <div className="mobile-menu-email">
               <strong>{userEmail}</strong>
             </div>
+            <Link 
+              to="/profile" 
+              onClick={closeMobileMenu} 
+              className="mobile-menu-orders"
+            >
+              <CgProfile className='mob' /> Profile
+            </Link>
             <Link 
               to="/myorders" 
               onClick={closeMobileMenu} 
