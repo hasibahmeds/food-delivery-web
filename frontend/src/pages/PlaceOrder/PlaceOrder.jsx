@@ -78,6 +78,31 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get(`${url}/api/user/getprofile`, { headers: { token } });
+        if (response.data.success) {
+          const { firstName, lastName, address, phone } = response.data.userData;
+          setFormData(prev => ({
+            ...prev,
+            firstName: firstName || prev.firstName,
+            lastName: lastName || prev.lastName,
+            address: address || prev.address,
+            phone: phone || prev.phone,
+            email: response.data.userData.email || prev.email
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
+      }
+    };
+
+    if (token) {
+      fetchUserProfile();
+    }
+  }, [token, url]);
+
+  useEffect(() => {
     // Only redirect if token is missing OR (food_list is loaded AND cart is empty AND order hasn't just been placed)
     const isCartEmpty = getTotalCartAmount() === 0;
     const isFoodListLoaded = food_list.length > 0;
