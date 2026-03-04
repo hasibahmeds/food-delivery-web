@@ -37,7 +37,7 @@ const createToken = (id) => {
 // register user
 
 const registerUser = async (req,res) => {
-    const {name,password,email} = req.body;
+    const {firstName,lastName,password,email} = req.body;
     try {
 
         // checking if user is already exist
@@ -63,7 +63,8 @@ const registerUser = async (req,res) => {
         const hashedPassword = await bcrypt.hash(password,salt);
 
         const newUser = new userModel({
-            name:name,
+            firstName:firstName,
+            lastName:lastName,
             email:email,
             password:hashedPassword
         })
@@ -78,4 +79,38 @@ const registerUser = async (req,res) => {
 }
 
 
-export {loginUser,registerUser}
+// get user profile
+const getProfile = async (req,res) => {
+    try {
+        const {userId} = req.body;
+        const userData = await userModel.findById(userId);
+        if (!userData) {
+            return res.json({success:false,message:"User not found"})
+        }
+        res.json({success:true,userData})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"})
+    }
+}
+
+// update user profile
+const updateProfile = async (req,res) => {
+    try {
+        const {userId, firstName, lastName, address, phone} = req.body;
+        
+        await userModel.findByIdAndUpdate(userId, {
+            firstName,
+            lastName,
+            address,
+            phone
+        });
+        
+        res.json({success:true,message:"Profile Updated"})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"})
+    }
+}
+
+export {loginUser,registerUser,getProfile,updateProfile}
