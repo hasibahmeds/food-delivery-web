@@ -112,8 +112,9 @@ const StoreContextProvider = (props) => {
   // For Live URL: https://your-live-backend-url.com
   const url = "https://food-delivery-backend-rqjq.onrender.com";
 
-  const [token, setToken] = useState("");
+const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
 
   const addToCart = async (itemId) => {
     setCartItems((prev) => {
@@ -123,6 +124,7 @@ const StoreContextProvider = (props) => {
     if (token) {
       await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
     }
+    setShowNotification(true);
   };
 
   const removeFromCart = async (itemId) => {
@@ -193,7 +195,9 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
     userEmail,
-    setUserEmail
+    setUserEmail,
+    showNotification,
+    setShowNotification
   };
 
   return (
