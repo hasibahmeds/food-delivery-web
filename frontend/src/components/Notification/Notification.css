@@ -90,7 +90,8 @@
 /* Responsive adjustments */
 @media (max-width: 480px) {
     .cart-notification {
-        width: 95%;
+        /* width: 95%; */
+         width: 85%;
         padding: 15px;
     }
     .added-text {
