@@ -8,6 +8,7 @@ import LoginPopup from "./components/LoginPopup/LoginPopup";
 import { useState, useEffect } from "react";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import Invoice from "./pages/Invoice/Invoice";
+import Profile from "./pages/Profile/Profile";
 
 // 🔥 Toast imports
 import { ToastContainer } from "react-toastify";
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/invoice" element={<Invoice />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
       <Footer />
