@@ -243,8 +243,7 @@ const Refund = () => {
 
               <div className="refund-card-body">
                 <p>
-                  <strong>Customer:</strong> {order.address?.firstName || ""}{" "}
-                  {order.address?.lastName || ""} •{" "}
+                  <strong>Customer:</strong> {order.address?.fullName || ""} •{" "}
                   {order.address?.phone || "—"}
                 </p>
                 <p>
