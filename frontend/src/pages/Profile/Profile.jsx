@@ -8,8 +8,7 @@ import { assets } from '../../assets/assets'
 const Profile = () => {
     const { url, token } = useContext(StoreContext)
     const [data, setData] = useState({
-        firstName: "",
-        lastName: "",
+        fullName: "",
         email: "",
         address: "",
         phone: ""
@@ -27,8 +26,7 @@ const Profile = () => {
             if (response.data.success && response.data.userData) {
                 const user = response.data.userData;
                 setData({
-                    firstName: user.firstName || "",
-                    lastName: user.lastName || "",
+                    fullName: user.fullName || "",
                     email: user.email || "",
                     address: user.address || "",
                     phone: user.phone || ""
@@ -43,8 +41,7 @@ const Profile = () => {
         event.preventDefault();
         try {
             const response = await axios.post(url + "/api/user/updateprofile", {
-                firstName: data.firstName,
-                lastName: data.lastName,
+                fullName: data.fullName,
                 address: data.address,
                 phone: data.phone
             }, { headers: { token } });
@@ -81,12 +78,8 @@ const Profile = () => {
                         <div className="profile-info-section">
                             <div className="multi-fields">
                                 <div className="input-group">
-                                    <label>First Name</label>
-                                    <input name='firstName' onChange={onChangeHandler} value={data.firstName} type="text" placeholder='First Name' required />
-                                </div>
-                                <div className="input-group">
-                                    <label>Last Name</label>
-                                    <input name='lastName' onChange={onChangeHandler} value={data.lastName} type="text" placeholder='Last Name' required />
+                                    <label>Full Name</label>
+                                    <input name='fullName' onChange={onChangeHandler} value={data.fullName} type="text" placeholder='Full Name' required />
                                 </div>
                             </div>
 
