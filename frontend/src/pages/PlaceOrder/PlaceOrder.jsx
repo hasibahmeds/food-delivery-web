@@ -52,8 +52,7 @@ const PlaceOrder = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     address: "",
     phone: ""
@@ -82,11 +81,10 @@ const PlaceOrder = () => {
       try {
         const response = await axios.get(`${url}/api/user/getprofile`, { headers: { token } });
         if (response.data.success) {
-          const { firstName, lastName, address, phone } = response.data.userData;
+          const { fullName, address, phone } = response.data.userData;
           setFormData(prev => ({
             ...prev,
-            firstName: firstName || prev.firstName,
-            lastName: lastName || prev.lastName,
+            fullName: fullName || prev.fullName,
             address: address || prev.address,
             phone: phone || prev.phone,
             email: response.data.userData.email || prev.email
@@ -185,8 +183,7 @@ const PlaceOrder = () => {
           <p className="title">Delivery Information</p>
 
           <div className="multi-fields">
-            <input name="firstName"  value={formData.firstName}  onChange={handleInputChange} placeholder="First Name"  required />
-            <input name="lastName"   value={formData.lastName}   onChange={handleInputChange} placeholder="Last Name"   required />
+            <input name="fullName"  value={formData.fullName}  onChange={handleInputChange} placeholder="Full Name"  required />
           </div>
 
           <input name="email" value={formData.email} onChange={handleInputChange} type="email" placeholder="Email Address" required />
