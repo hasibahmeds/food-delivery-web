@@ -714,8 +714,7 @@ const Orders = () => {
                       .join(", ")}
                   </p>
                   <p className="order-item-name">
-                    {order.address?.firstName || ""} {order.address?.lastName || ""}
-                    {!order.address?.firstName && !order.address?.lastName && "(No name)"}
+                    {order.address?.fullName || "(No name)"}
                   </p>
                   <div className="order-item-address">
                     <p>{order.address?.email || "—"}</p>
