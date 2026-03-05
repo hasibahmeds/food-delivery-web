@@ -37,7 +37,7 @@ const createToken = (id) => {
 // register user
 
 const registerUser = async (req,res) => {
-    const {firstName,lastName,password,email} = req.body;
+    const {fullName,password,email} = req.body;
     try {
 
         // checking if user is already exist
@@ -63,8 +63,7 @@ const registerUser = async (req,res) => {
         const hashedPassword = await bcrypt.hash(password,salt);
 
         const newUser = new userModel({
-            firstName:firstName,
-            lastName:lastName,
+            fullName:fullName,
             email:email,
             password:hashedPassword
         })
@@ -97,11 +96,10 @@ const getProfile = async (req,res) => {
 // update user profile
 const updateProfile = async (req,res) => {
     try {
-        const {userId, firstName, lastName, address, phone} = req.body;
+        const {userId, fullName, address, phone} = req.body;
         
         await userModel.findByIdAndUpdate(userId, {
-            firstName,
-            lastName,
+            fullName,
             address,
             phone
         });
