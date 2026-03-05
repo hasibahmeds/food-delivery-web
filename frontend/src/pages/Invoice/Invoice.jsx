@@ -64,7 +64,7 @@ const Invoice = () => {
       doc.text("Name", labelX, y);
       doc.text(":", colonX, y);
       doc.text(
-        `${order.address?.firstName || ""} ${order.address?.lastName || ""}`.trim() || "N/A",
+        (order.address?.fullName || "N/A").trim(),
         valueX,
         y
       );
