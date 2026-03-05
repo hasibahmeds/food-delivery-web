@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState({ firstName: "", lastName: "", email: "", password: "" });
+  const [data, setData] = useState({ fullName: "", email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false); // 🔥 Loading state
 
@@ -25,9 +25,8 @@ const Signup = () => {
         data.password
       );
       
-      const fullName = `${data.firstName} ${data.lastName}`.trim();
-      if (fullName) {
-        await updateProfile(cred.user, { displayName: fullName });
+      if (data.fullName) {
+        await updateProfile(cred.user, { displayName: data.fullName });
       }
       navigate("/add");
     } catch (error) {
@@ -49,20 +48,11 @@ const Signup = () => {
           <div className="login-popup-inputs">
             <div className="login-popup-multi-inputs">
               <input
-                name="firstName"
+                name="fullName"
                 onChange={onChange}
-                value={data.firstName}
+                value={data.fullName}
                 type="text"
-                placeholder="First Name"
-                required
-                disabled={loading}
-              />
-              <input
-                name="lastName"
-                onChange={onChange}
-                value={data.lastName}
-                type="text"
-                placeholder="Last Name"
+                placeholder="Full Name"
                 required
                 disabled={loading}
               />
