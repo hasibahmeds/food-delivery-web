@@ -10,8 +10,7 @@ const LoginPopup = ({ setShowLogin }) => {
   const { url, setToken, setUserEmail } = useContext(StoreContext)
   const [currState, setCurrState] = useState("Login")
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     password: ""
   })
@@ -92,8 +91,7 @@ const LoginPopup = ({ setShowLogin }) => {
             <></>
           ) : (
             <div className="login-popup-multi-inputs">
-              <input name='firstName' onChange={onChangeHandler} value={data.firstName} type='text' placeholder='First Name' required />
-              <input name='lastName' onChange={onChangeHandler} value={data.lastName} type='text' placeholder='Last Name' required />
+              <input name='fullName' onChange={onChangeHandler} value={data.fullName} type='text' placeholder='Full Name' required />
             </div>
           )}
           <input name='email' onChange={onChangeHandler} value={data.email} type='email' placeholder='Your email' required />
