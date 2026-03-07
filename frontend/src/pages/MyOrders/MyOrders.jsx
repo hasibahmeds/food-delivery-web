@@ -374,6 +374,8 @@ const MyOrders = () => {
                   <p className="order-item-count">
                     Items: {order.items.length}
                   </p>
+                  <p>Order: {order.payment ? "Success" : "Fail"}</p>
+                  <p> {order.paymentMethod}</p>
                   <p
                     className={`status ${order.status
                       .toLowerCase()
