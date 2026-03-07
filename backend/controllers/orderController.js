@@ -304,7 +304,8 @@ const placeOrder = async (req, res) => {
       amount: expectedTotal, // use calculated total for safety
       address,
       payment: true, // COD = considered paid
-      paymentStatus: "success" // or "cod" if you want to distinguish
+      paymentStatus: "success", // or "cod" if you want to distinguish
+      paymentMethod: "Cash On Delivery"
     });
 
     await newOrder.save();
