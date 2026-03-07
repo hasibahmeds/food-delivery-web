@@ -1,4 +1,4 @@
-      {/* ---------------- DELIVERY ZONE MAP ---------------- */}
+{/* ---------------- DELIVERY ZONE MAP ---------------- */}
       // <div className="cart-map">
       //   <p className="map-text">
       //     Before checkout, Please ensure the delivery zone.
@@ -23,16 +23,14 @@
 
 
 
-
-
-
-
 import { useContext, useEffect, useState } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import OrderSuccessModal from "../../components/OrderResultModal/OrderSuccessModal";
+import OrderFailModal from "../../components/OrderResultModal/OrderFailModal";
 
 const deliveryAreas = [
   { name: "Motijheel",    fee: 50 },
@@ -64,6 +62,8 @@ const PlaceOrder = () => {
   const [loadingCOD, setLoadingCOD] = useState(false);
   const [loadingOnline, setLoadingOnline] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [showOrderResult, setShowOrderResult] = useState(false);
+  const [orderResultType, setOrderResultType] = useState(null); // "success" or "fail"
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -134,12 +134,20 @@ const PlaceOrder = () => {
         toast.success("Order placed successfully!");
         setOrderPlaced(true);
         setCartItems({}); // Clear cart in context
-        navigate("/myorders");
+        
+        // Show success modal for COD
+        setOrderResultType("success");
+        setShowOrderResult(true);
       } else {
         toast.error(res.data.message || "Order placement failed");
+        // Show fail modal for COD
+        setOrderResultType("fail");
+        setShowOrderResult(true);
       }
     } catch (err) {
       toast.error("Network error");
+      setOrderResultType("fail");
+      setShowOrderResult(true);
     } finally {
       setLoadingCOD(false);
     }
@@ -173,11 +181,24 @@ const PlaceOrder = () => {
     }
   };
 
+  const handleModalContinue = () => {
+    setShowOrderResult(false);
+    navigate("/myorders");
+  };
+
   const subtotal = getTotalCartAmount();
   const total = subtotal + deliveryFee;
 
   return (
     <div className="place-order-page">
+      {showOrderResult && (
+        orderResultType === "success" ? (
+          <OrderSuccessModal paymentMethod="Cash on Delivery" onContinue={handleModalContinue} />
+        ) : (
+          <OrderFailModal paymentMethod="Cash on Delivery" onContinue={handleModalContinue} />
+        )
+      )}
+      
       <form className="place-order" onSubmit={placeCashOnDeliveryOrder}>
         <div className="place-order-left">
           <p className="title">Delivery Information</p>
