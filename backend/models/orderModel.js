@@ -30,7 +30,8 @@ const orderSchema = new mongoose.Schema({
     default: "pending" 
   },
   refundDecisionAt: { type: Date },
-  refundDecisionBy: { type: String }   // admin email or id (optional)
+  refundDecisionBy: { type: String },   // admin email or id (optional)
+  paymentMethod: { type: String, default: "Cash On Delivery" }
 }, { timestamps: true });
 
 const orderModel = mongoose.models.order || mongoose.model("order",orderSchema);
