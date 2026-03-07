@@ -214,7 +214,8 @@ export const sslInit = async (req, res) => {
       address: addressMerged,
       payment: false,
       transactionId: tran_id,
-      paymentStatus: "pending"
+      paymentStatus: "pending",
+      paymentMethod: "Online Payment"
     });
 
     // Backend URL - Use local server for development callbacks
