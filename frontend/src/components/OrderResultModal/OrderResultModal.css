@@ -1,0 +1,150 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-icon svg {
+  width: 100px;
+  height: 100px;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.success-modal .modal-title {
+  color: #4CAF50;
+}
+
+.fail-modal .modal-title {
+  color: #F44336;
+}
+
+.modal-message {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-button {
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.continue-btn-success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.continue-btn-success:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3); */
+}
+
+.continue-btn-success:active {
+  transform: translateY(0);
+}
+
+
+
+
+.continue-btn-fail {
+  background-color: #F44336;
+  color: white;
+}
+
+.continue-btn-fail:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3); */
+}
+
+.continue-btn-fail:active {
+  transform: translateY(0);
+}
+
+
+
+/* .continue-btn {
+  background-color: #FF5722;
+  color: white;
+}
+
+.continue-btn:hover {
+  background-color: #E64A19;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
+} */
+
