@@ -730,7 +730,8 @@ const Orders = () => {
                     <p className="order-date">{formatBDTime(order.date)}</p>
                   </div>
                   <p className="order-item-phone">{order.address?.phone || "—"}</p>
-                      <p>Order: {order.payment ? "true" : "false"}</p>
+                      <p>Order: {order.payment ? "Success" : "Fail"}</p>
+                      <p>Payment Method: {order.paymentMethod || (order.transactionId ? "Online Payment" : "Cash On Delivery")}</p>
                   {order.status === "Food Processing" && (
                     <div className="admin-cancel-info">
                       {remainingMs > 0 ? (
@@ -769,7 +770,6 @@ const Orders = () => {
 
                   <button
                     className="invoice-btn"
-                    disabled={!["Out for delivery", "Delivered"].includes(order.status)}
                     onClick={() => navigate("/invoice", { state: { order } })}
                   >
                     Invoice
