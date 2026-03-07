@@ -731,7 +731,7 @@ const Orders = () => {
                   </div>
                   <p className="order-item-phone">{order.address?.phone || "—"}</p>
                       <p>Order: {order.payment ? "Success" : "Fail"}</p>
-                      <p>Payment Method: {order.paymentMethod || (order.transactionId ? "Online Payment" : "Cash On Delivery")}</p>
+                      <p> {order.paymentMethod || (order.transactionId ? "Online Payment" : "Cash On Delivery")}</p>
                   {order.status === "Food Processing" && (
                     <div className="admin-cancel-info">
                       {remainingMs > 0 ? (
