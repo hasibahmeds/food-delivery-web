@@ -347,8 +347,11 @@ const MyOrders = () => {
             const timeText = formatTimeLeft(remainingMs);
 
             const canAccessInvoice = [
+              "Food Processing",
+              "Food Processed",
               "Out for delivery",
               "Delivered",
+              "Cancelled",
             ].includes(order.status);
 
             return (
@@ -457,6 +460,3 @@ const MyOrders = () => {
 };
 
 export default MyOrders;
-
-
-
