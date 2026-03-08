@@ -46,6 +46,10 @@ const deliveryAreas = [
 ];
 
 const PlaceOrder = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems } = useContext(StoreContext);
   const navigate = useNavigate();
 
