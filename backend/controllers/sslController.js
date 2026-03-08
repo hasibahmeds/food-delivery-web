@@ -155,7 +155,7 @@ export const sslCancel = async (req, res) => {
   } catch (error) {
     console.error("SSL Cancel error:", error);
   } finally {
-    const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com/";
+    const frontend_url = process.env.FRONTEND_URL || "https://food-delivery-frontend-6yax.onrender.com";
     res.redirect(`${frontend_url}/order-result?status=fail&paymentMethod=Online%20Payment`);
   }
 };
