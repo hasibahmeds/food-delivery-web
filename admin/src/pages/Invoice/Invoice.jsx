@@ -11,7 +11,11 @@ const Invoice = () => {
   const [loading, setLoading] = useState(false);
 
   if (!order) {
-    return <div style={{ padding: 40, textAlign: "center" }}>No order data found.</div>;
+    return (
+      <div style={{ padding: 40, textAlign: "center" }}>
+        No order data found.
+      </div>
+    );
   }
 
   // Calculate subtotal from items (never trust amount directly if possible)
@@ -42,7 +46,8 @@ const Invoice = () => {
 
       doc.text("Invoice No", labelX, y);
       doc.text(":", colonX, y);
-      doc.text(String(order._id), valueX, y);
+      // doc.text(String(order._id), valueX, y);
+      doc.text(String(order._id).slice(0, 11), valueX, y);
       y += 7;
 
       doc.text("Date", labelX, y);
@@ -63,19 +68,22 @@ const Invoice = () => {
       doc.setFontSize(11);
       doc.text("Name", labelX, y);
       doc.text(":", colonX, y);
-      doc.text(
-        (order.address?.fullName || "N/A").trim(),
-        valueX,
-        y
-      );
+      doc.text((order.address?.fullName || "N/A").trim(), valueX, y);
       y += 8;
 
       doc.text("Address", labelX, y);
       doc.text(":", colonX, y);
 
+      // const fullAddress = [
+      //   order.address?.address || "",
+      //   order.address?.deliveryArea ? `(${order.address.deliveryArea})` : "",
+      // ]
+      //   .filter(Boolean)
+      //   .join(", ");
+
       const fullAddress = [
         order.address?.address || "",
-        order.address?.deliveryArea ? `(${order.address.deliveryArea})` : "",
+        order.address?.deliveryArea || "",
       ]
         .filter(Boolean)
         .join(", ");
@@ -98,17 +106,43 @@ const Invoice = () => {
         `${item.price * item.quantity} TK`,
       ]);
 
+      // autoTable(doc, {
+      //   startY: y,
+      //   head: [["#", "Item Name", "Qty", "Price", "Total"]],
+      //   body: tableData,
+      //   theme: "grid",
+      //   styles: { fontSize: 10 },
+      //   headStyles: { fillColor: [0, 0, 0] },
+      // });
+
       autoTable(doc, {
         startY: y,
         head: [["#", "Item Name", "Qty", "Price", "Total"]],
         body: tableData,
         theme: "grid",
-        styles: { fontSize: 10 },
-        headStyles: { fillColor: [0, 0, 0] },
+        styles: {
+          fontSize: 10,
+          lineColor: [150, 150, 150], // border color
+          lineWidth: 0.2,
+        },
+        headStyles: {
+          fillColor: [0, 0, 0],
+          textColor: 255,
+          lineColor: [150, 150, 150],
+        },
       });
 
       const finalY = doc.lastAutoTable.finalY + 10;
 
+      // autoTable(doc, {
+      //   startY: finalY,
+      //   body: [
+      //     ["Sub Total", `${subtotal} TK`],
+      //     ["Delivery Charge", `${deliveryCharge} TK`],
+      //     ["Grand Total", `${order.amount} TK`],
+      //   ],
+      //   theme: "grid",
+      //   styles: { fontSize: 11 },
       autoTable(doc, {
         startY: finalY,
         body: [
@@ -117,7 +151,12 @@ const Invoice = () => {
           ["Grand Total", `${order.amount} TK`],
         ],
         theme: "grid",
-        styles: { fontSize: 11 },
+        styles: {
+          fontSize: 11,
+          lineColor: [150, 150, 150],
+          lineWidth: 0.2,
+        },
+        
         columnStyles: {
           0: { halign: "left" },
           1: { halign: "right" },
