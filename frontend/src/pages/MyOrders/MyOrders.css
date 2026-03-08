@@ -331,7 +331,8 @@
 .my-orders {
   width: 95%;
   max-width: 1200px;
-  margin: 40px auto;
+  /* margin: 40px auto; */
+  margin: 25px auto;
   padding: 0 15px;
 }
 
