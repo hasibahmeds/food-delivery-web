@@ -121,6 +121,7 @@ const Invoice = () => {
         body: tableData,
         theme: "grid",
         styles: {
+          textColor: 0,
           fontSize: 10,
           lineColor: [150, 150, 150], // border color
           lineWidth: 0.2,
@@ -152,6 +153,7 @@ const Invoice = () => {
         ],
         theme: "grid",
         styles: {
+          textColor: 0,
           fontSize: 11,
           lineColor: [150, 150, 150],
           lineWidth: 0.2,
@@ -164,6 +166,21 @@ const Invoice = () => {
         tableWidth: 80,
         margin: { left: 115 },
       });
+
+      let paymentText = "UNPAID";
+      if (order.paymentMethod === "Cash On Delivery" && order.status === "Delivered") {
+        paymentText = "PAID";
+      } else if (order.paymentMethod === "Online Payment" && order.payment === true) {
+        paymentText = "PAID";
+      } else if (order.paymentMethod === "Online Payment" && order.payment === false) {
+        paymentText = "UNPAID";
+      }
+
+      // const paymentY = doc.lastAutoTable.finalY + 15;
+      const paymentY = doc.lastAutoTable.finalY + 11;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text(paymentText, 195, paymentY, { align: "right" });
 
       doc.save(`Invoice-${order._id}.pdf`);
       setLoading(false);
